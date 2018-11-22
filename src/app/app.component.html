@@ -4,4 +4,5 @@
 <!-- важно передать состояние -->
 <div [@clickedDiv]="clickedDivState"
      (click)="changeDivState()"
+     (mousedown)="clickedDivState='active'"
 ></div>
