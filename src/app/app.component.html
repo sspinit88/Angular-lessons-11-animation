@@ -1,8 +1,14 @@
-<div [@clickedDiv]="clickedDivState"
-     (click)="changeDivState()"
-     (mousedown)="clickedDivState='active'"
-     [ngStyle]="{marginBottom: '30px'}"
-></div>
+<button class="btn btn-primary"
+        (click)="isVisible = !isVisible"
+>
+    Переключить
+</button>
 
-<div [@multi]="multiState"
-     (click)="changeMultiState()"></div>
+<hr>
+
+<div class="alert alert-danger"
+     *ngIf="isVisible"
+     [@divTrigger]="'show'"
+>
+    Lorem ipsum dolor sit amet.
+</div>
