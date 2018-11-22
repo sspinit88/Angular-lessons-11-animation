@@ -1,15 +1,15 @@
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import {animate, style, transition, trigger} from "@angular/animations";
 
 // создаем константу, которая является результатом
 // работы метода trigger и экспортирую ее наружу,
 // подключаю ее в компоненте в массив animations: [divTrigger]
 
 export const divTrigger = trigger('divTrigger', [
-    state('show', style({
-
-    })),
     // void - отвечает за отстутствующий эл в DOM
-    transition('void => show', [
+    // * - означает, что будем использовать переход из любого состояния
+    // transition('void => *', [
+    // для 'void => *' есть спец ярлык ':enter'
+    transition(':enter', [
         style({
             opacity: 0
         }),
@@ -17,7 +17,23 @@ export const divTrigger = trigger('divTrigger', [
             opacity: 1
         })),
     ]),
-    transition('show => void', animate(700, style({
+    // ярлык для состояния '* => void' - ':leave'
+    transition(':leave', animate(500, style({
         opacity: 0
     })))
+]);
+
+export const changeWidthTrigger = trigger('changeWidth', [
+    transition('* => *', [
+        animate(1000,
+            style({
+               height: '10px'
+        })),
+        animate(1000,
+            style({
+                // вернет ширину к ее изначальному значению,
+                // работает только для ширины и высоты
+                height: '*'
+        }))
+    ])
 ]);
