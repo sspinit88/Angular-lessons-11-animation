@@ -8,4 +8,15 @@ import {divTrigger} from "./app.animations";
 })
 export class AppComponent {
     isVisible = false;
+
+    // event, приходящий, имеет специальный тип -
+    onAnimationStart(event: AnimationEvent){
+        console.log('start ', event);
+    }
+
+    offAnimationStart(event: AnimationEvent){
+        console.log('done ', event);
+    }
+
+
 }

@@ -6,9 +6,13 @@
 
 <hr>
 
+<!--(@divTrigger.start)="" - ставим прослушку анимации по 'start'-->
+
 <div class="alert alert-danger"
      *ngIf="isVisible"
      [@divTrigger]
+     (@divTrigger.start)="onAnimationStart($event)"
+     (@divTrigger.done)="offAnimationStart($event)"
 >
     Lorem ipsum dolor sit amet.
 </div>
