@@ -1,8 +1,8 @@
-<!--создадим пустой див-->
-<!-- для создания анимации перейдем в компонент.ts -->
-<!-- @clickedDiv - к нему будет применена анимация -->
-<!-- важно передать состояние -->
 <div [@clickedDiv]="clickedDivState"
      (click)="changeDivState()"
      (mousedown)="clickedDivState='active'"
+     [ngStyle]="{marginBottom: '30px'}"
 ></div>
+
+<div [@multi]="multiState"
+     (click)="changeMultiState()"></div>
